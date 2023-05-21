@@ -27,20 +27,22 @@ public abstract class ManagerPaneView<T extends Model> extends JPanel {
         initComponents();
         tblData.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
         tblData.getTableHeader().setOpaque(false);
-        tblData.getTableHeader().setBackground(new Color(51, 175, 255));
-        tblData.getTableHeader().setForeground(new Color(255, 255, 255));
+        tblData.getTableHeader().setBackground(new Color(244, 211, 94));
+        tblData.getTableHeader().setForeground(new Color(13, 59, 102));
         ((DefaultTableCellRenderer) tblData.getTableHeader().getDefaultRenderer())
                 .setHorizontalAlignment(JLabel.LEFT);
         tblData.setAutoCreateRowSorter(true);
-        btnAdd.setIcon(im.getIcon("add_25px.png"));
-        btnEdit.setIcon(im.getIcon("edit_25px.png"));
-        btnDelete.setIcon(im.getIcon("delete_25px.png"));
-        btnRecycle.setIcon(im.getIcon("sync_25px.png"));
+        btnAdd.setIcon(im.getIcon("add.png"));
+        btnEdit.setIcon(im.getIcon("pencil.png"));
+        btnDelete.setIcon(im.getIcon("cross-small.png"));
+        btnFind.setIcon(im.getIcon("search.png"));
+        btnRecycle.setIcon(im.getIcon("trash.png"));
         tblData.setModel(tableModel);
         btnAdd.putClientProperty("JButton.buttonType", "roundRect");
 //         được sử dụng để gắn một thuộc tính tùy chỉnh vào một thành phần giao diện người dùng (UI component).
         btnDelete.putClientProperty("JButton.buttonType", "roundRect");
         btnEdit.putClientProperty("JButton.buttonType", "roundRect");
+        btnFind.putClientProperty("JButton.buttonType", "roundRect");
         btnRecycle.putClientProperty("JButton.buttonType", "roundRect");
     }
 
@@ -90,7 +92,7 @@ public abstract class ManagerPaneView<T extends Model> extends JPanel {
     }
 
     public JButton getBtnRecycle() {
-        return btnRecycle;
+        return btnFind;
     }
 
     public ArrayList<T> getTableData() {
@@ -151,20 +153,20 @@ public abstract class ManagerPaneView<T extends Model> extends JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblData = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         btnDelete = new javax.swing.JButton();
-        btnRecycle = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
+        btnFind = new javax.swing.JButton();
+        btnRecycle = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         txtSearch = new javax.swing.JTextField();
         cboSearchField = new javax.swing.JComboBox<>();
 
-        setBackground(new java.awt.Color(118, 215, 196));
+        setBackground(new java.awt.Color(250, 240, 202));
         setAlignmentX(0.0F);
         setAlignmentY(0.0F);
         setPreferredSize(new java.awt.Dimension(1008, 680));
@@ -172,6 +174,8 @@ public abstract class ManagerPaneView<T extends Model> extends JPanel {
 
         jScrollPane1.setOpaque(false);
 
+        tblData.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(244, 211, 94)));
+        tblData.setForeground(new java.awt.Color(13, 59, 102));
         tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -184,6 +188,7 @@ public abstract class ManagerPaneView<T extends Model> extends JPanel {
             }
         ));
         tblData.setFocusable(false);
+        tblData.setGridColor(new java.awt.Color(255, 255, 255));
         tblData.setRowHeight(30);
         tblData.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tblData);
@@ -191,57 +196,67 @@ public abstract class ManagerPaneView<T extends Model> extends JPanel {
         add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
         jPanel1.setOpaque(false);
-        jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        btnDelete.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnDelete.setBackground(new java.awt.Color(244, 211, 94));
+        btnDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnDelete.setText("Xóa");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 42;
-        gridBagConstraints.insets = new java.awt.Insets(15, 5, 15, 5);
-        jPanel1.add(btnDelete, gridBagConstraints);
 
-        btnRecycle.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnEdit.setBackground(new java.awt.Color(244, 211, 94));
+        btnEdit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEdit.setText("Sửa");
+
+        btnAdd.setBackground(new java.awt.Color(244, 211, 94));
+        btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAdd.setText("Thêm");
+
+        btnFind.setBackground(new java.awt.Color(244, 211, 94));
+        btnFind.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnFind.setText("Tìm kiếm");
+        btnFind.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFindActionPerformed(evt);
+            }
+        });
+
+        btnRecycle.setBackground(new java.awt.Color(244, 211, 94));
+        btnRecycle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnRecycle.setText("Thùng rác");
         btnRecycle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRecycleActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 42;
-        gridBagConstraints.insets = new java.awt.Insets(15, 5, 15, 5);
-        jPanel1.add(btnRecycle, gridBagConstraints);
 
-        btnEdit.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnEdit.setText("Sửa");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 42;
-        gridBagConstraints.insets = new java.awt.Insets(15, 5, 15, 5);
-        jPanel1.add(btnEdit, gridBagConstraints);
-
-        btnAdd.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnAdd.setText("Thêm");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 42;
-        gridBagConstraints.insets = new java.awt.Insets(15, 5, 15, 5);
-        jPanel1.add(btnAdd, gridBagConstraints);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnFind, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnRecycle, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(221, 221, 221)
+                .addComponent(btnAdd)
+                .addGap(30, 30, 30)
+                .addComponent(btnEdit)
+                .addGap(30, 30, 30)
+                .addComponent(btnDelete)
+                .addGap(31, 31, 31)
+                .addComponent(btnFind)
+                .addGap(29, 29, 29)
+                .addComponent(btnRecycle)
+                .addContainerGap())
+        );
 
         add(jPanel1, java.awt.BorderLayout.LINE_END);
 
@@ -250,6 +265,7 @@ public abstract class ManagerPaneView<T extends Model> extends JPanel {
         jPanel2.setPreferredSize(new java.awt.Dimension(1008, 40));
         jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT));
 
+        txtSearch.setBackground(new java.awt.Color(244, 211, 94));
         txtSearch.setForeground(new java.awt.Color(153, 153, 153));
         txtSearch.setText("Search");
         txtSearch.setAlignmentX(0.0F);
@@ -258,6 +274,7 @@ public abstract class ManagerPaneView<T extends Model> extends JPanel {
         txtSearch.setPreferredSize(new java.awt.Dimension(200, 25));
         jPanel2.add(txtSearch);
 
+        cboSearchField.setBackground(new java.awt.Color(244, 211, 94));
         cboSearchField.setMinimumSize(new java.awt.Dimension(100, 25));
         cboSearchField.setPreferredSize(new java.awt.Dimension(100, 25));
         jPanel2.add(cboSearchField);
@@ -265,18 +282,23 @@ public abstract class ManagerPaneView<T extends Model> extends JPanel {
         add(jPanel2, java.awt.BorderLayout.PAGE_START);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRecycleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecycleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRecycleActionPerformed
-
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFindActionPerformed
+
+    private void btnRecycleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecycleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRecycleActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnFind;
     private javax.swing.JButton btnRecycle;
     private javax.swing.JComboBox<String> cboSearchField;
     private javax.swing.JPanel jPanel1;

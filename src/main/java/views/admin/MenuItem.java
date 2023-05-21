@@ -127,12 +127,13 @@ public class MenuItem extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         lbMenuName = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(250, 240, 202));
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         setPreferredSize(new java.awt.Dimension(200, 45));
         setLayout(new java.awt.BorderLayout());
 
+        jPanel1.setBackground(new java.awt.Color(250, 240, 202));
         jPanel1.setMaximumSize(new java.awt.Dimension(45, 45));
         jPanel1.setMinimumSize(new java.awt.Dimension(45, 45));
         jPanel1.setOpaque(false);
@@ -157,6 +158,7 @@ public class MenuItem extends javax.swing.JPanel {
 
         add(jPanel1, java.awt.BorderLayout.WEST);
 
+        jPanel3.setBackground(new java.awt.Color(250, 240, 202));
         jPanel3.setMaximumSize(new java.awt.Dimension(45, 45));
         jPanel3.setMinimumSize(new java.awt.Dimension(45, 45));
         jPanel3.setOpaque(false);
@@ -180,10 +182,12 @@ public class MenuItem extends javax.swing.JPanel {
 
         add(jPanel3, java.awt.BorderLayout.EAST);
 
+        jPanel2.setBackground(new java.awt.Color(250, 240, 202));
         jPanel2.setOpaque(false);
         jPanel2.setPreferredSize(new java.awt.Dimension(155, 45));
 
-        lbMenuName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbMenuName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbMenuName.setForeground(new java.awt.Color(13, 59, 102));
         lbMenuName.setText("Menu Name");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -193,7 +197,7 @@ public class MenuItem extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(lbMenuName)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

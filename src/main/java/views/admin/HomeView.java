@@ -38,7 +38,7 @@ public class HomeView extends javax.swing.JPanel {
         labLogo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(153, 255, 255));
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1008, 680));
         setMinimumSize(new java.awt.Dimension(1008, 680));
         addMouseListener(new java.awt.event.MouseAdapter() {
@@ -48,17 +48,17 @@ public class HomeView extends javax.swing.JPanel {
         });
         setLayout(null);
 
-        labLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/KCSA.png"))); // NOI18N
+        labLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nen.jpg"))); // NOI18N
         labLogo.setPreferredSize(new java.awt.Dimension(400, 400));
         add(labLogo);
-        labLogo.setBounds(780, 10, 200, 190);
+        labLogo.setBounds(250, 150, 480, 280);
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home-background.png"))); // NOI18N
         jLabel1.setToolTipText("");
         jLabel1.setMaximumSize(new java.awt.Dimension(10080000, 68000000));
         add(jLabel1);
-        jLabel1.setBounds(0, 0, 1008, 680);
+        jLabel1.setBounds(0, 0, 0, 0);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
@@ -70,8 +70,8 @@ public class HomeView extends javax.swing.JPanel {
         if (!isShowLed) {
             return;
         }
-        setBackground(RandomColor.getColor());
-        jLabel1.setForeground(RandomColor.getContrastColor(getBackground()));
+//        setBackground(RandomColor.getColor());
+//        jLabel1.setForeground(RandomColor.getContrastColor(getBackground()));
         setTimeout(this::makeLed, 200);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables

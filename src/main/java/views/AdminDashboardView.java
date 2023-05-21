@@ -105,27 +105,33 @@ public class AdminDashboardView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Trang quản lý");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setUndecorated(true);
         setResizable(false);
 
+        panelLeft.setBackground(new java.awt.Color(255, 255, 255));
         panelLeft.setPreferredSize(new java.awt.Dimension(200, 680));
         panelLeft.setLayout(new java.awt.BorderLayout());
 
-        panelHeader.setBackground(new java.awt.Color(34, 153, 84));
+        panelHeader.setBackground(new java.awt.Color(244, 211, 94));
         panelHeader.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 5, 0, 0));
         panelHeader.setForeground(new java.awt.Color(255, 255, 255));
+        panelHeader.setToolTipText("");
         panelHeader.setPreferredSize(new java.awt.Dimension(200, 50));
         panelHeader.setLayout(new java.awt.GridBagLayout());
 
         lbName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lbName.setForeground(new java.awt.Color(255, 255, 255));
-        lbName.setText("Trần Đức Cường");
+        lbName.setForeground(new java.awt.Color(13, 59, 102));
+        lbName.setText("Tên người login");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.weightx = 0.1;
         panelHeader.add(lbName, gridBagConstraints);
 
-        btnLogout.setText("Thoát");
+        btnLogout.setBackground(new java.awt.Color(244, 211, 94));
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logout.png"))); // NOI18N
+        btnLogout.setBorder(null);
         btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLogout.setFocusable(false);
         btnLogout.setRequestFocusEnabled(false);
@@ -137,11 +143,13 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         panelLeft.add(panelHeader, java.awt.BorderLayout.PAGE_START);
 
+        panelSideBar.setBackground(new java.awt.Color(250, 240, 202));
         panelSideBar.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
         panelLeft.add(panelSideBar, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(panelLeft, java.awt.BorderLayout.LINE_START);
 
+        panelLayout.setBackground(new java.awt.Color(250, 240, 202));
         panelLayout.setMaximumSize(new java.awt.Dimension(1000, 680));
         panelLayout.setMinimumSize(new java.awt.Dimension(1000, 680));
         panelLayout.setPreferredSize(new java.awt.Dimension(1008, 680));

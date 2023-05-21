@@ -56,7 +56,7 @@ public class AboutView extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 0, 153));
-        jLabel1.setText("Vinehomse Luxury Manage");
+        jLabel1.setText("Vinhomes Luxury Manage");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel2.setText("Dự Án Mẫu");
@@ -78,7 +78,7 @@ public class AboutView extends javax.swing.JPanel {
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
-                .addContainerGap(583, Short.MAX_VALUE))
+                .addContainerGap(591, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

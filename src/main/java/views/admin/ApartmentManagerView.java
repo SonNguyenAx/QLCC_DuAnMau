@@ -26,10 +26,10 @@ public class ApartmentManagerView extends ManagerPaneView<Employee> {
         tableModel.addColumn("Số điện thoại");
         tableModel.addColumn("Ngày sinh");
         tableModel.addColumn("Giới tính");
-         tableModel.addColumn("Chức vụ");
-          tableModel.addColumn("Lương");
+        tableModel.addColumn("Chức vụ");
+        tableModel.addColumn("Lương");
         tableModel.addColumn("Ngày vào làm");
-      
+
         this.getCboSearchField().setModel(new DefaultComboBoxModel(list));
     }
 }

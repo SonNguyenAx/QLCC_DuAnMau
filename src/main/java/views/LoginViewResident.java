@@ -56,93 +56,100 @@ public class LoginViewResident extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        lblHide = new javax.swing.JLabel();
+        lblClose1 = new javax.swing.JLabel();
+        lblClose = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        lblRegister = new javax.swing.JLabel();
-        btnLogin = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         txtPassword = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblForgotPassword = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        lblRegister = new javax.swing.JLabel();
+        btnLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Đăng Nhập Hệ Thống");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setUndecorated(true);
         setResizable(false);
 
-        jPanel4.setBackground(new java.awt.Color(87, 184, 70));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setPreferredSize(new java.awt.Dimension(400, 283));
+
+        jPanel4.setBackground(new java.awt.Color(244, 211, 94));
         jPanel4.setMaximumSize(new java.awt.Dimension(400, 75));
         jPanel4.setMinimumSize(new java.awt.Dimension(400, 75));
-        jPanel4.setPreferredSize(new java.awt.Dimension(400, 75));
+        jPanel4.setPreferredSize(new java.awt.Dimension(400, 45));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(13, 59, 102));
         jLabel3.setText("Đăng Nhập");
+
+        lblHide.setBackground(new java.awt.Color(255, 255, 255));
+        lblHide.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblHide.setForeground(new java.awt.Color(13, 59, 102));
+        lblHide.setText("-");
+        lblHide.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblHideMouseClicked(evt);
+            }
+        });
+
+        lblClose1.setBackground(new java.awt.Color(255, 255, 255));
+        lblClose1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblClose1.setForeground(new java.awt.Color(13, 59, 102));
+        lblClose1.setText("|");
+
+        lblClose.setBackground(new java.awt.Color(255, 255, 255));
+        lblClose.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblClose.setForeground(new java.awt.Color(13, 59, 102));
+        lblClose.setText("X");
+        lblClose.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCloseMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(157, 157, 157)
+                .addGap(97, 97, 97)
                 .addComponent(jLabel3)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblHide)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblClose1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblClose)
+                .addGap(18, 18, 18))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel3)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGap(9, 9, 9)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblClose)
+                        .addComponent(lblClose1)
+                        .addComponent(lblHide))
+                    .addComponent(jLabel3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel4, java.awt.BorderLayout.PAGE_START);
-
+        jPanel5.setPreferredSize(new java.awt.Dimension(400, 182));
         jPanel5.setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(414, 75));
-
-        lblRegister.setForeground(new java.awt.Color(0, 132, 255));
-        lblRegister.setText("Chưa có tài khoản?");
-
-        btnLogin.setBackground(new java.awt.Color(87, 184, 70));
-        btnLogin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogin.setText("Đăng Nhập");
-        btnLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoginActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblRegister)
-                    .addComponent(btnLogin))
-                .addGap(143, 143, 143))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLogin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblRegister)
-                .addContainerGap())
-        );
-
-        jPanel5.add(jPanel1, java.awt.BorderLayout.PAGE_END);
-
+        jPanel3.setBackground(new java.awt.Color(250, 240, 202));
         jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
@@ -162,6 +169,7 @@ public class LoginViewResident extends javax.swing.JFrame {
         jPanel3.add(txtPassword, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(13, 59, 102));
         jLabel1.setText("Username:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -172,6 +180,7 @@ public class LoginViewResident extends javax.swing.JFrame {
         jPanel3.add(jLabel1, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(13, 59, 102));
         jLabel2.setText("Password:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -181,6 +190,7 @@ public class LoginViewResident extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 5, 10, 5);
         jPanel3.add(jLabel2, gridBagConstraints);
 
+        lblForgotPassword.setForeground(new java.awt.Color(13, 59, 102));
         lblForgotPassword.setText("Quên mật khẩu");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -201,7 +211,73 @@ public class LoginViewResident extends javax.swing.JFrame {
 
         jPanel5.add(jPanel3, java.awt.BorderLayout.CENTER);
 
-        getContentPane().add(jPanel5, java.awt.BorderLayout.CENTER);
+        jPanel1.setBackground(new java.awt.Color(250, 240, 202));
+        jPanel1.setPreferredSize(new java.awt.Dimension(193, 75));
+
+        lblRegister.setForeground(new java.awt.Color(0, 132, 255));
+        lblRegister.setText("Chưa có tài khoản?");
+
+        btnLogin.setBackground(new java.awt.Color(244, 211, 94));
+        btnLogin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(13, 59, 102));
+        btnLogin.setText("Đăng Nhập");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(144, 144, 144)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblRegister)
+                    .addComponent(btnLogin))
+                .addContainerGap(139, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(btnLogin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblRegister)
+                .addGap(12, 12, 12))
+        );
+
+        jPanel5.add(jPanel1, java.awt.BorderLayout.PAGE_END);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 384, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(228, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addContainerGap(58, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -214,16 +290,30 @@ public class LoginViewResident extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    private void lblHideMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHideMouseClicked
+        // TODO add your handling code here:
+        setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_lblHideMouseClicked
+
+    private void lblCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCloseMouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_lblCloseMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JLabel lblClose;
+    private javax.swing.JLabel lblClose1;
     private javax.swing.JLabel lblForgotPassword;
+    private javax.swing.JLabel lblHide;
     private javax.swing.JLabel lblRegister;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
