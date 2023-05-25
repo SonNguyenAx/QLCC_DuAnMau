@@ -10,8 +10,8 @@ import java.sql.Timestamp;
  * @author Đỗ Tuấn Anh <daclip26@gmail.com>
  */
 public class Session {
-
-    private int id, idUser;
+    private Long  idUser;
+    private int id;
     private Timestamp startTime, endTime;
     private User user;
     private String message;
@@ -54,11 +54,11 @@ public class Session {
         }
     }
 
-    public int getIdUser() {
+    public Long getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(int idUser) {
+    public void setIdUser(Long idUser) {
         this.idUser = idUser;
     }
 
@@ -73,7 +73,7 @@ public class Session {
     public static Session getFromResultSet(ResultSet rs) throws SQLException {
         Session s = new Session();
         s.setId(rs.getInt("id"));
-        s.setIdUser(rs.getInt("idUser"));
+        s.setIdUser(rs.getLong("idUser"));
         s.setMessage(rs.getNString("message"));
         s.setStartTime(rs.getTimestamp("startTime"));
         s.setEndTime(rs.getTimestamp("endTime"));

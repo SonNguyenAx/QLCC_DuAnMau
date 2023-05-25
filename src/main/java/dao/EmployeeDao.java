@@ -19,14 +19,14 @@ public class EmployeeDao extends Dao<Employee> {
         ResultSet rs = statement.executeQuery(query);
         while (rs.next()) {
             Employee employee = Employee.getFromResultSet(rs);
-            employee.setSalary(salaryDao.get((int) employee.getSalaryId()));
+            employee.setSalary(salaryDao.get( employee.getSalaryId()));
             employees.add(employee);
         }
         return employees;
     }
 
     @Override
-    public Employee get(int id) throws SQLException {
+    public Employee get(Long id) throws SQLException {
         Statement statement = conn.createStatement();
         String query = "SELECT * FROM service_employee WHERE service_employee.id = " + id;
         ResultSet rs = statement.executeQuery(query);
@@ -82,9 +82,9 @@ public class EmployeeDao extends Dao<Employee> {
     }
 
     @Override
-    public void deleteById(int id) throws SQLException {
+    public void deleteById(Long id) throws SQLException {
         PreparedStatement stmt = conn.prepareStatement("DELETE FROM `service_employee` WHERE `service_employee`.`id` = ?");
-        stmt.setInt(1, id);
+        stmt.setLong(1, id);
         stmt.executeUpdate();
     }
 

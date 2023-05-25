@@ -21,13 +21,13 @@ public class OrderManagerView extends ManagerPaneView<Order> {
     @Override
     public void setTableModel() {
         tableModel.addColumn("ID");
-        tableModel.addColumn("Người lập");
-        tableModel.addColumn("Bàn");
-        tableModel.addColumn("Loại");
-        tableModel.addColumn("Trạng thái");
-        tableModel.addColumn("Ngày lập HD");
+        tableModel.addColumn("Tiêu đề ");
+        tableModel.addColumn("Số tiền");
+        tableModel.addColumn("Căn hộ");
+        tableModel.addColumn("Kì thanh toán");
+        tableModel.addColumn("Hạn thanh toán");
         tableModel.addColumn("Ngày thanh toán");
-        tableModel.addColumn("Đã Thanh Toán");
+        tableModel.addColumn("Người tạo");
         this.getCboSearchField().setModel(new DefaultComboBoxModel(list));
     }
 }

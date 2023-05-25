@@ -24,7 +24,17 @@ public class UserDao extends Dao<User> {
     }
 
     @Override
-    public User get(int id) throws SQLException {
+    public User get(Long id) throws SQLException {
+        Statement statement = conn.createStatement();
+        String query = "SELECT * FROM users WHERE users.id = " + id;
+        ResultSet rs = statement.executeQuery(query);
+        if (rs.next()) {
+            User users = User.getFromResultSet(rs);
+            return users;
+        }
+        return null;
+    }
+     public User get(int id) throws SQLException {
         Statement statement = conn.createStatement();
         String query = "SELECT * FROM users WHERE users.id = " + id;
         ResultSet rs = statement.executeQuery(query);
@@ -61,21 +71,21 @@ public class UserDao extends Dao<User> {
    stmt.setNString(1, t.getName());
         stmt.setNString(2, t.getPassword());
         stmt.setNString(3, t.getRole().getId());
-        stmt.setInt(4, t.getId());
+        stmt.setLong(4, t.getId());
         stmt.executeUpdate();
     }
 
     @Override
     public void delete(User t) throws SQLException {
         PreparedStatement stmt = conn.prepareStatement("DELETE FROM `users` WHERE `users`.`id` = ?");
-        stmt.setInt(1, t.getId());
+        stmt.setLong(1, t.getId());
         stmt.executeUpdate();
     }
 
     @Override
-    public void deleteById(int id) throws SQLException {
+    public void deleteById(Long id) throws SQLException {
         PreparedStatement stmt = conn.prepareStatement("DELETE FROM `users` WHERE `users`.`id` = ?");
-        stmt.setInt(1, id);
+        stmt.setLong(1, id);
         stmt.executeUpdate();
     }
 
@@ -112,4 +122,6 @@ public class UserDao extends Dao<User> {
         }
         return null;
     }
+
+   
 }

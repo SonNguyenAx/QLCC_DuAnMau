@@ -7,10 +7,7 @@ package views;
 import controllers.LoginControllerAdmin;
 import controllers.LoginControllerResident;
 
-/**
- *
- * @author ADMIN
- */
+
 public class MainView extends javax.swing.JFrame {
 
     /**

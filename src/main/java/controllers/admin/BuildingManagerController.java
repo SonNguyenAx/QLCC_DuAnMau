@@ -34,7 +34,7 @@ public class BuildingManagerController extends ManagerController {
     @Override
     public void actionEdit() {
         try {
-            int selectedId = view.getSelectedId();
+            long selectedId = view.getSelectedId();
             if (selectedId < 0) {
                 throw new Exception("Chọn nhân viên cần edit");
             }
@@ -52,7 +52,7 @@ public class BuildingManagerController extends ManagerController {
 
     @Override
     public void actionDelete() {
-        int selectedIds[] = view.getSelectedIds();
+        Long selectedIds[] = view.getSelectedIds();
         try {
             if (JOptionPane.showConfirmDialog(null, "Xác nhận xóa hàng loạt?", "Xóa nhân viên", ERROR_MESSAGE) != YES_OPTION) {
                 return;

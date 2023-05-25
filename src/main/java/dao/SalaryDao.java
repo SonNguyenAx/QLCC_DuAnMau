@@ -25,7 +25,7 @@ public class SalaryDao extends Dao<Salary> {
     }
 
     @Override
-    public Salary get(int id) throws SQLException {
+    public Salary get(Long id) throws SQLException {
         Statement statement = conn.createStatement();
         String query = "SELECT * FROM `salary` WHERE id = " + id;
         ResultSet rs = statement.executeQuery(query);
@@ -77,9 +77,9 @@ public class SalaryDao extends Dao<Salary> {
     }
 
     @Override
-    public void deleteById(int id) throws SQLException {
+    public void deleteById(Long id) throws SQLException {
         PreparedStatement stmt = conn.prepareStatement("DELETE FROM `salary` WHERE `id` = ?");
-        stmt.setInt(1, id);
+        stmt.setLong(1, id);
         stmt.executeUpdate();
     }
 

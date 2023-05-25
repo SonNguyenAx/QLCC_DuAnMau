@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import models.WorkDay;
-import utils.ErrorPopup;
+
 import views.resident.DayView;
 
 
@@ -94,21 +94,7 @@ public class DayController {
                     WorkDay workDay = workDayDao.getSales(id, Timestamp.valueOf(Date));
                   
                     System.out.println(workDay.getDay());
-//                    popupInfor.addFocusListener(new FocusListener() {
-//                        private boolean gained = false;
-//
-//                        @Override
-//                        public void focusGained(FocusEvent e) {
-//                            gained = true;
-//                        }
-//
-//                        @Override
-//                        public void focusLost(FocusEvent e) {
-//                            if (gained) {
-//                                WorkDayInfoView.dispose();
-//                            }
-//                        }
-//                    });
+
                    
                 } catch (SQLException ee) {
                     ee.printStackTrace();

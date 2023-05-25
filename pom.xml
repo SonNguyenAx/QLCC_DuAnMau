@@ -54,6 +54,12 @@
             <artifactId>jfreechart</artifactId>
             <version>1.5.1</version>
         </dependency>
+        <!--Excel-->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+         <version>3.17</version>
+        </dependency>
 
 
 

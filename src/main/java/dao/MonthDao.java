@@ -5,44 +5,45 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import models.Building;
-
-import models.Building;
 
 
-public class BuildingDao extends Dao<Building> {
+import models.Month;
+
+
+public class MonthDao extends Dao<Month> {
   
     @Override
-    public ArrayList<Building> getAll() throws SQLException {
-        ArrayList<Building> buildings = new ArrayList<>();
+    public ArrayList<Month> getAll() throws SQLException {
+        ArrayList<Month> months = new ArrayList<>();
         Statement statement = conn.createStatement();
-        String query = "SELECT * FROM building;";
+        String query = "SELECT * FROM month;";
         ResultSet rs = statement.executeQuery(query);
         while (rs.next()) {
-            Building building = Building.getFromResultSet(rs);
-            buildings.add(building);
+            Month month = Month.getFromResultSet(rs);
+            months.add(month);
         }
-        return buildings;
+        return months;
     }
 
     @Override
-    public Building get(Long id) throws SQLException {
+    public Month get(Long id) throws SQLException {
         Statement statement = conn.createStatement();
-        String query = "SELECT * FROM building WHERE building.id = " + id;
+        String query = "SELECT * FROM month WHERE month.id = " + id;
         ResultSet rs = statement.executeQuery(query);
         if (rs.next()) {
-            Building building = Building.getFromResultSet(rs);
-            return building;
+            Month month = Month.getFromResultSet(rs);
+            return month;
         }
         return null;
     }
+   
 
     @Override
-    public void save(Building t) throws SQLException {
+    public void save(Month t) throws SQLException {
         if (t == null) {
-            throw new SQLException("Building rỗng");
+            throw new SQLException("Month rỗng");
         }
-        String query = "INSERT INTO `building` (`name`, `phone`, `date`, `gender`, `position`, `salary_id`, `created`)"
+        String query = "INSERT INTO `month` (`name`, `phone`, `date`, `gender`, `position`, `salary_id`, `created`)"
                 + " VALUES (?, ?, ?, ?, ?, ?, current_timestamp())";
 
         PreparedStatement stmt = conn.prepareStatement(query);
@@ -57,11 +58,11 @@ public class BuildingDao extends Dao<Building> {
     }
 
     @Override
-    public void update(Building t) throws SQLException {
+    public void update(Month t) throws SQLException {
         if (t == null) {
-            throw new SQLException("Building rong");
+            throw new SQLException("Month rong");
         }
-        String query = "UPDATE `building` SET `name` = ?, `phone` = ?, `date` = ?, `gender` = ?, `position` = ?, `salary_id` = ?, = ? WHERE `id` = ?";
+        String query = "UPDATE `month` SET `name` = ?, `phone` = ?, `date` = ?, `gender` = ?, `position` = ?, `salary_id` = ?, = ? WHERE `id` = ?";
 //        PreparedStatement stmt = conn.prepareStatement(query);
 //       stmt.setNString(1, t.getName());
 //        stmt.setNString(2, t.getPhone());
@@ -75,49 +76,49 @@ public class BuildingDao extends Dao<Building> {
     }
 
     @Override
-    public void delete(Building t) throws SQLException {
-        PreparedStatement stmt = conn.prepareStatement("DELETE FROM `building` WHERE `building`.`id` = ?");
+    public void delete(Month t) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("DELETE FROM `month` WHERE `month`.`id` = ?");
 //        stmt.setInt(1, t.getId());
         stmt.executeUpdate();
     }
 
     @Override
     public void deleteById(Long id) throws SQLException {
-        PreparedStatement stmt = conn.prepareStatement("DELETE FROM `building` WHERE `building`.`id` = ?");
+        PreparedStatement stmt = conn.prepareStatement("DELETE FROM `month` WHERE `month`.`id` = ?");
         stmt.setLong(1, id);
         stmt.executeUpdate();
     }
 
-    public Building findByUsername(String name) throws SQLException {
+    public Month findByUsername(String name) throws SQLException {
         Statement statement = conn.createStatement();
-        String query = "SELECT * FROM building WHERE building.name = '" + name + "'";
+        String query = "SELECT * FROM month WHERE month.name = '" + name + "'";
         ResultSet rs = statement.executeQuery(query);
         if (rs.next()) {
-            Building building = Building.getFromResultSet(rs);
-            return building;
+            Month month = Month.getFromResultSet(rs);
+            return month;
         }
         return null;
     }
 
-    public ArrayList<Building> searchByKey(String key, String word) throws SQLException {
-        ArrayList<Building> buildings = new ArrayList<>();
+    public ArrayList<Month> searchByKey(String key, String word) throws SQLException {
+        ArrayList<Month> months = new ArrayList<>();
         Statement statement = conn.createStatement();
-        String query = "SELECT * FROM `building` WHERE " + key + " LIKE '%" + word + "%';";
+        String query = "SELECT * FROM `month` WHERE " + key + " LIKE '%" + word + "%';";
         ResultSet rs = statement.executeQuery(query);
         while (rs.next()) {
-            Building building = Building.getFromResultSet(rs);
-            buildings.add(building);
+            Month month = Month.getFromResultSet(rs);
+            months.add(month);
         }
-        return buildings;
+        return months;
     }
 
-    public Building getRandom() throws SQLException {
+    public Month getRandom() throws SQLException {
         Statement statement = conn.createStatement();
-        String query = "SELECT * FROM building ORDER BY RAND() LIMIT 1";
+        String query = "SELECT * FROM month ORDER BY RAND() LIMIT 1";
         ResultSet rs = statement.executeQuery(query);
         if (rs.next()) {
-            Building building = Building.getFromResultSet(rs);
-            return building;
+            Month month = Month.getFromResultSet(rs);
+            return month;
         }
         return null;
     }

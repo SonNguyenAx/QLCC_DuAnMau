@@ -107,26 +107,26 @@ public abstract class ManagerPaneView<T extends Model> extends JPanel {
     }
 
     // Lấy id các hàng đc chọn
-    public int[] getSelectedIds() {
+    public Long[] getSelectedIds() {
 
         int selectedRows[] = tblData.getSelectedRows();
-        int selectedIds[] = new int[selectedRows.length];
+        Long selectedIds[] = new Long[selectedRows.length];
         for (int i = 0; i < selectedRows.length; i++) {
             int selectedRow = selectedRows[i];
-            int id = (int) tblData.getValueAt(selectedRow, 0);
+            Long id = (Long) tblData.getValueAt(selectedRow, 0);
             selectedIds[i] = id;
         }
         return selectedIds;
     }
 
     // Lấy id hàng chọn đầu
-    public int getSelectedId() {
+    public long getSelectedId() {
 
-        int selectedRow = tblData.getSelectedRow();
+        long selectedRow = tblData.getSelectedRow();
         if (selectedRow < 0) {
             return -1;
         }
-        int id = (int) tblData.getValueAt(selectedRow, 0);
+        long id =  (long) tblData.getValueAt((int) selectedRow, 0);
         return id;
     }
 
@@ -225,6 +225,11 @@ public abstract class ManagerPaneView<T extends Model> extends JPanel {
 
         btnEdit.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnEdit.setText("Sửa");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -272,6 +277,10 @@ public abstract class ManagerPaneView<T extends Model> extends JPanel {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;

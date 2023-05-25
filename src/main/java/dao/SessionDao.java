@@ -8,11 +8,6 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import models.Session;
 
-/**
- * createAt Dec 24, 2020
- *
- * @author Đỗ Tuấn Anh <daclip26@gmail.com>
- */
 public class SessionDao extends Dao<Session> {
 
     UserDao userDao = new UserDao();
@@ -32,7 +27,7 @@ public class SessionDao extends Dao<Session> {
     }
 
     @Override
-    public Session get(int id) throws SQLException {
+    public Session get(Long id) throws SQLException {
         Statement statement = conn.createStatement();
         String query = "SELECT * FROM `session` WHERE `id` = " + id;
         ResultSet rs = statement.executeQuery(query);
@@ -43,8 +38,9 @@ public class SessionDao extends Dao<Session> {
         }
         return null;
     }
+ 
 
-    public ArrayList<Session> getSession(int id) throws SQLException {
+    public ArrayList<Session> getSession(Long id) throws SQLException {
         ArrayList<Session> sessions = new ArrayList<>();
         Statement statement = conn.createStatement();
         String query = "SELECT * FROM `session` WHERE `idUser` = " + id + " ORDER BY `session`.`startTime` DESC";
@@ -65,7 +61,7 @@ public class SessionDao extends Dao<Session> {
         String query = "INSERT INTO `session` (`idUser`, `startTime`, `endTime` , `message`) VALUES (?, ?, ?, ?)";
 
         PreparedStatement stmt = conn.prepareStatement(query);
-        stmt.setInt(1, t.getIdUser());
+        stmt.setLong(1, t.getIdUser());
         stmt.setTimestamp(2, t.getStartTime());
         stmt.setTimestamp(3, t.getEndTime());
         stmt.setNString(4, t.getMessage());
@@ -93,11 +89,11 @@ public class SessionDao extends Dao<Session> {
     }
 
     @Override
-    public void deleteById(int id) throws SQLException {
+    public void deleteById(Long id) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public Session getLast(int idUser) throws SQLException {
+    public Session getLast(Long idUser) throws SQLException {
         Statement statement = conn.createStatement();
         String query = "SELECT * FROM `session` WHERE `idUser` = " + idUser
                 + " ORDER BY `id` DESC LIMIT 1";

@@ -108,14 +108,15 @@ public class Apartment extends Model {
 
     public static Apartment getFromResultSet(ResultSet rs) throws SQLException {
         Apartment e = new Apartment();
-//        e.setId(rs.getInt("id"));
-//         e.setName(rs.getNString("name"));
-//        e.setPhone(rs.getNString("phone"));
-//        e.setDate(rs.getTimestamp("date"));
-//        e.setGender(rs.getBoolean("gender"));
-//          e.setPosition(rs.getNString("position"));
-//         e.setSalaryId((int) rs.getLong("salary_id"));
-//          e.setCreated(rs.getTimestamp("created"));
+        e.setId(rs.getLong("id"));
+         e.setApartmentCode(rs.getNString("apartment_code"));
+        e.setApartmentnumber(rs.getNString("apartment_number"));
+        e.setFloorNumber(rs.getInt("floor_number"));
+        e.setOwnerName(rs.getNString("owner_name"));
+          e.setOwnerPhone(rs.getString("owner_phone"));
+          e.setTrash(rs.getInt("trash"));
+           e.setStatus(rs.getInt("status"));
+            e.setBuildingId(rs.getLong("building_id"));
         return e;
     }
 

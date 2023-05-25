@@ -11,11 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import utils.ErrorPopup;
 
-/**
- * createAt Dec 27, 2020
- *
- * @author Đỗ Tuấn Anh <daclip26@gmail.com>
- */
+
 public class StatisticalView extends javax.swing.JPanel {
 
     public StatisticalView() {

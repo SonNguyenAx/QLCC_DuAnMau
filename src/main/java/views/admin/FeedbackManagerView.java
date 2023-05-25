@@ -1,10 +1,11 @@
 package views.admin;
 
 import javax.swing.DefaultComboBoxModel;
-import models.Shipment;
+import models.Feedback;
 
 
-public class FeedbackManagerView extends ManagerPaneView<Shipment> {
+
+public class FeedbackManagerView extends ManagerPaneView<Feedback> {
 
     String[] list = {"id","name"};
 
