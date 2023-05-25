@@ -2,7 +2,7 @@ package controllers;
 
 import controllers.admin.ApartmentManagerController;
 import controllers.admin.BuildingManagerController;
-import controllers.admin.CustomerManagerController;
+import controllers.admin.ResidentManagerController;
 import controllers.admin.EmployeeManagerController;
 import controllers.admin.OrderManagerController;
 
@@ -46,7 +46,7 @@ public class AdminDashboardController {
             buildingManagerController = new BuildingManagerController(),
                apartmentManagerController = new ApartmentManagerController(),
             orderManagerController = new OrderManagerController(),
-            customerManagerController = new CustomerManagerController();
+            customerManagerController = new ResidentManagerController();
     
     StatisticalController statisticalController = new StatisticalController();
   
@@ -107,7 +107,7 @@ public class AdminDashboardController {
             menuQLHH.addSubMenu(new MenuItem("QLCH", null, "Quản lý căn hộ"));
         menuQLHH.addSubMenu(new MenuItem("QLCD", im.getIcon("food_25px.png"), "Quản lý cư dân"));
         menuQLDH.addSubMenu(new MenuItem("QLYCCD", im.getIcon("table_25px.png"), "Quản lý yêu cầu cư dân"));
-        menuQLDH.addSubMenu(new MenuItem("QLDDH", im.getIcon("purchase_order_25px.png"), "Quản lý hóa đơn"));
+        menuQLDH.addSubMenu(new MenuItem("QLHD", im.getIcon("purchase_order_25px.png"), "Quản lý hóa đơn"));
         menuQLDH.addSubMenu(new MenuItem("QLYCDV", im.getIcon("truck_25px.png"), "Quản lý yêu cầu dịch vụ"));
         menuTK.addSubMenu(new MenuItem("TKNV", im.getIcon("user_25px.png"), "Thống kê nhân viên"));
         menuTK.addSubMenu(new MenuItem("TKDT", null, "Thống kê doanh thu"));
@@ -173,7 +173,7 @@ public class AdminDashboardController {
 //                tableManagerController.setView(tableManagerView);
 //                tableManagerController.updateData();
                 break;
-                  case "QLYCCD"://Quản lý hóa đơn
+                  case "QLHD"://Quản lý hóa đơn
                 view.setPanel(orderManagerView);
                 orderManagerController.setView(orderManagerView);
                 orderManagerController.updateData();

@@ -3,7 +3,7 @@ package controllers.admin;
 import controllers.ManagerController;
 import controllers.popup.CustomerPopupController;
 import dao.ResidentDao;
-import dao.ShipmentDao;
+
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
@@ -11,19 +11,15 @@ import static javax.swing.JOptionPane.YES_OPTION;
 import models.Resident;
 import views.popup.CustomerPopupView;
 
-/**
- * createAt Dec 15, 2020
- *
- * @author Đỗ Tuấn Anh <daclip26@gmail.com>
- */
-public class CustomerManagerController extends ManagerController {
+
+public class ResidentManagerController extends ManagerController {
 
     ResidentDao customerDao = new ResidentDao();
-    ShipmentDao shipmentDao = new ShipmentDao();
+    
     CustomerPopupController popupController = new CustomerPopupController();
     CustomerPopupController customerPopupController = new CustomerPopupController();
 
-    public CustomerManagerController() {
+    public ResidentManagerController() {
         super();
     }
 
@@ -35,14 +31,14 @@ public class CustomerManagerController extends ManagerController {
 
     @Override
     public void actionDelete() {
-        int selectedIds[] = view.getSelectedIds();
+        Long selectedIds[] = view.getSelectedIds();
         try {
             if (JOptionPane.showConfirmDialog(null, "Xác nhận xóa hàng loạt?", "Xóa khách hàng", ERROR_MESSAGE) != YES_OPTION) {
                 return;
             }
             for (int i = 0; i < selectedIds.length; i++) {
-                int id = selectedIds[i];
-                shipmentDao.deleteByIdCustomer(id);
+                long id = selectedIds[i];
+//                shipmentDao.deleteByIdCustomer(id);
                 customerDao.deleteById(id);
                 updateData();
             }
@@ -54,7 +50,7 @@ public class CustomerManagerController extends ManagerController {
     @Override
     public void actionEdit() {
         try {
-            int selectedId = view.getSelectedId();
+            long selectedId = view.getSelectedId();
             if (selectedId < 0) {
                 throw new Exception("Chọn khách hàng cần edit");
             } else {

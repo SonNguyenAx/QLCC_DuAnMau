@@ -7,7 +7,7 @@ import utils.UserRole;
 
 public class User extends Model {
 
-    protected int id;
+    protected Long id;
     protected String name, password;
     protected UserRole role;
 
@@ -15,11 +15,11 @@ public class User extends Model {
     public User() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -60,7 +60,7 @@ public class User extends Model {
 
     public static User getFromResultSet(ResultSet rs) throws SQLException {
         User e = new User();
-        e.setId(rs.getInt("id"));
+        e.setId(rs.getLong("id"));
          e.setName(rs.getNString("name"));
         e.setPassword(rs.getNString("password"));
         e.setRole(UserRole.getById(rs.getNString("role")));

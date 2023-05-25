@@ -7,97 +7,72 @@ import java.sql.Timestamp;
 
 
 public class Service extends Model {
-    protected int id;
-    protected long salaryId;
-    protected String name, phone,position;
-    protected boolean gender;
-    protected Salary salary;
-    protected Timestamp date,created;
+    protected Long id;
+    protected String name;
+    protected double price;
+    protected int required,trash,status;
+    protected Timestamp created;
     
     public Service() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
-    }
-
-    public long getSalaryId() {
-        return salaryId;
-    }
-
-  
-    public Timestamp getDate() {
-        return date;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getPhone() {
-        return phone;
+    public double getPrice() {
+        return price;
     }
 
-    public String getPosition() {
-        return position;
+    public int getRequired() {
+        return required;
     }
 
-   
-    public boolean isGender() {
-        return gender;
+    public int getTrash() {
+        return trash;
     }
 
-    public void setDate(Timestamp date) {
-        this.date = date;
-    }
-
-    public Salary getSalary() {
-        return salary;
+    public int getStatus() {
+        return status;
     }
 
     public Timestamp getCreated() {
         return created;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
-    }
-
-    public void setSalaryId(int salaryId) {
-        this.salaryId = salaryId;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public void setRequired(int required) {
+        this.required = required;
     }
 
- 
-
-    public void setGender(boolean gender) {
-        this.gender = gender;
+    public void setTrash(int trash) {
+        this.trash = trash;
     }
 
-    public void setSalary(Salary salary) {
-        this.salary = salary;
-        if (salary != null) {
-            this.salaryId = salary.getId();
-        }
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public void setCreated(Timestamp created) {
         this.created = created;
     }
 
-  
-
+   
 
     @Override
     public String toString() {
@@ -107,13 +82,12 @@ public class Service extends Model {
 
     public static Service getFromResultSet(ResultSet rs) throws SQLException {
         Service e = new Service();
-        e.setId(rs.getInt("id"));
+        e.setId(rs.getLong("id"));
          e.setName(rs.getNString("name"));
-        e.setPhone(rs.getNString("phone"));
-        e.setDate(rs.getTimestamp("date"));
-        e.setGender(rs.getBoolean("gender"));
-          e.setPosition(rs.getNString("position"));
-         e.setSalaryId((int) rs.getLong("salary_id"));
+        e.setPrice(rs.getDouble("price"));
+        e.setRequired(rs.getInt("required"));
+        e.setTrash(rs.getInt("trash"));
+          e.setStatus(rs.getInt("status"));
           e.setCreated(rs.getTimestamp("created"));
         return e;
     }
@@ -121,9 +95,7 @@ public class Service extends Model {
     @Override
     public Object[] toRowTable() {
         return new Object[]{
-            id, name,phone,date,gender,position,salary.getSalary()
-          
-     
+         id,name
         };
     }
 

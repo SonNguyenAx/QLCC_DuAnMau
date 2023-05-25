@@ -1,5 +1,6 @@
 package controllers;
 
+import dao.ResidentDao;
 import dao.UserDao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +16,7 @@ import views.admin.HomeView;
 public class LoginControllerResident {
 
     private LoginViewResident view;
-    UserDao employeeDao = new UserDao();
+    ResidentDao residentDao = new ResidentDao();
 
     public LoginControllerResident(LoginViewResident view) {
         this.view = view;
@@ -33,47 +34,25 @@ public class LoginControllerResident {
     }
 
     public void login() {
-        String username = view.getTxtUsername().getText();
-        String password = new String(view.getTxtPassword().getPassword());
-        try {
-            User employee = employeeDao.findByUsername(username);
-            if (employee == null) {
-                view.showError("Không tồn tại tài khoản!");
-                return;
-            }
-            if (!employee.checkPassword(password)) {
-                view.showError("Mật khẩu sai");
-                return;
-            }
-            SessionManager.create(employee);//Khởi tạo session
-
-            switch (employee.getRole()) {
-                case MANAGER:
-                    //Admin controller
-                    AdminDashboardController controller = new AdminDashboardController(new AdminDashboardView());
-                    controller.getView().setPanel(new HomeView());
-                    view.dispose();// Tắt form đăng nhập
-                    break;
-                case STAFF:
-                    UserDashboardController controller1 = new UserDashboardController(new EmployeeDashboardView());
-                    controller1.getView().setPanel(new HomeView());
-                    view.dispose();// Tắt form đăng nhập                    
-                    break;
-                //Seller Controller
-                case INACTIVE:
-                    view.showError("Tài khoản của bạn đã bị khóa.\nVui lòng liên hệ admin để biết thêm chi tiết");
-                    SessionManager.update();
-                    view.dispose();
-                    break;
-                default:
-                    view.showError("Vui lòng liên hệ admin để biết thêm chi tiết");
-                    SessionManager.update();
-                    view.dispose();
-                    break;
-            }
-        } catch (Exception e) {
-            view.showError(e);
-        }
+//        String username = view.getTxtUsername().getText();
+//        String password = new String(view.getTxtPassword().getPassword());
+//    
+//            User employee = employeeDao.findByUsername(username);
+//            if (employee == null) {
+//                view.showError("Không tồn tại tài khoản!");
+//                return;
+//            }
+//            if (!employee.checkPassword(password)) {
+//                view.showError("Mật khẩu sai");
+//                return;
+//            }
+//           
+//            AdminDashboardController controller = new AdminDashboardController(new AdminDashboardView());
+//                    controller.getView().setPanel(new HomeView());
+//                    view.dispose();// Tắt form đăng nhập
+                 
+          
+        
     }
 
     // Tạo sự kiện

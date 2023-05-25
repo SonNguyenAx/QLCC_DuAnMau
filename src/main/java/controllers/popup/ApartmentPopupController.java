@@ -10,11 +10,7 @@ import views.popup.ApartmentPopupView;
 
 import views.popup.ApartmentPopupView;
 
-/**
- * createAt Dec 17, 2020
- *
- * @author Đỗ Tuấn Anh <daclip26@gmail.com>
- */
+
 public class ApartmentPopupController {
 
     ApartmentDao apartmentDao = new ApartmentDao();

@@ -7,10 +7,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import utils.ErrorPopup;
 
-/**
- * @createAt Nov 7, 2020
- * @author Tran Duc Cuong<clonebmn2itt@gmail.com>
- */
+
 public class LoginViewAdmin extends javax.swing.JFrame {
 
     public LoginViewAdmin() {

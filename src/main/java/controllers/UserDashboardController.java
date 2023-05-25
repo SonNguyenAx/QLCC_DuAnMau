@@ -6,7 +6,7 @@
 package controllers;
 
 import controllers.resident.InformationController;
-import controllers.admin.CustomerManagerController;
+import controllers.admin.ResidentManagerController;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -33,7 +33,7 @@ public class UserDashboardController {
     private EmployeeDashboardView view;
     ManagerController 
 
-            customerManagerController = new CustomerManagerController();
+            customerManagerController = new ResidentManagerController();
     InformationController informationController = new InformationController();
     ManagerPaneView orderManagerView = new OrderManagerView(),
             shipmentManagerView = new FeedbackManagerView(),

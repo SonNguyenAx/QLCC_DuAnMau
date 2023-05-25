@@ -13,7 +13,7 @@ public class HistoryLoginController {
     JFrame previousView;
     HistoryLoginView view;
     SessionDao sessionDao = new SessionDao();
-    int id = SessionManager.getSession().getIdUser();
+    long id = SessionManager.getSession().getIdUser();
 
     public void show(HistoryLoginView view) {
         if (previousView != null && previousView.isDisplayable()) {

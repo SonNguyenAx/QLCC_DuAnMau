@@ -21,16 +21,15 @@ public class ApartmentDao extends Dao<Apartment> {
         ResultSet rs = statement.executeQuery(query);
         while (rs.next()) {
             Apartment apartment = Apartment.getFromResultSet(rs);
-//            apartment.setSalary(salaryDao.get((int) apartment.getSalaryId()));
             apartments.add(apartment);
         }
         return apartments;
     }
 
     @Override
-    public Apartment get(int id) throws SQLException {
+    public Apartment get(Long id) throws SQLException {
         Statement statement = conn.createStatement();
-        String query = "SELECT * FROM service_apartment WHERE service_apartment.id = " + id;
+        String query = "SELECT * FROM apartment WHERE apartment.id = " + id;
         ResultSet rs = statement.executeQuery(query);
         if (rs.next()) {
             Apartment apartment = Apartment.getFromResultSet(rs);
@@ -44,7 +43,7 @@ public class ApartmentDao extends Dao<Apartment> {
         if (t == null) {
             throw new SQLException("Apartment rỗng");
         }
-        String query = "INSERT INTO `service_apartment` (`name`, `phone`, `date`, `gender`, `position`, `salary_id`, `created`)"
+        String query = "INSERT INTO `apartment` (`name`, `phone`, `date`, `gender`, `position`, `salary_id`, `created`)"
                 + " VALUES (?, ?, ?, ?, ?, ?, current_timestamp())";
 
         PreparedStatement stmt = conn.prepareStatement(query);
@@ -63,7 +62,7 @@ public class ApartmentDao extends Dao<Apartment> {
         if (t == null) {
             throw new SQLException("Apartment rong");
         }
-        String query = "UPDATE `service_apartment` SET `name` = ?, `phone` = ?, `date` = ?, `gender` = ?, `position` = ?, `salary_id` = ?, = ? WHERE `id` = ?";
+        String query = "UPDATE `apartment` SET `name` = ?, `phone` = ?, `date` = ?, `gender` = ?, `position` = ?, `salary_id` = ?, = ? WHERE `id` = ?";
         PreparedStatement stmt = conn.prepareStatement(query);
 //       stmt.setNString(1, t.getName());
 //        stmt.setNString(2, t.getPhone());
@@ -78,21 +77,21 @@ public class ApartmentDao extends Dao<Apartment> {
 
     @Override
     public void delete(Apartment t) throws SQLException {
-        PreparedStatement stmt = conn.prepareStatement("DELETE FROM `service_apartment` WHERE `service_apartment`.`id` = ?");
+        PreparedStatement stmt = conn.prepareStatement("DELETE FROM `apartment` WHERE `apartment`.`id` = ?");
         stmt.setLong(1, t.getId());
         stmt.executeUpdate();
     }
 
     @Override
-    public void deleteById(int id) throws SQLException {
-        PreparedStatement stmt = conn.prepareStatement("DELETE FROM `service_apartment` WHERE `service_apartment`.`id` = ?");
-        stmt.setInt(1, id);
+    public void deleteById(Long id) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("DELETE FROM `apartment` WHERE `apartment`.`id` = ?");
+        stmt.setLong(1, id);
         stmt.executeUpdate();
     }
 
     public Apartment findByUsername(String name) throws SQLException {
         Statement statement = conn.createStatement();
-        String query = "SELECT * FROM apartment WHERE service_apartment.name = '" + name + "'";
+        String query = "SELECT * FROM apartment WHERE apartment.apartment_code = '" + name + "'";
         ResultSet rs = statement.executeQuery(query);
         if (rs.next()) {
             Apartment apartment = Apartment.getFromResultSet(rs);
@@ -104,7 +103,7 @@ public class ApartmentDao extends Dao<Apartment> {
     public ArrayList<Apartment> searchByKey(String key, String word) throws SQLException {
         ArrayList<Apartment> apartments = new ArrayList<>();
         Statement statement = conn.createStatement();
-        String query = "SELECT * FROM `service_apartment` WHERE " + key + " LIKE '%" + word + "%';";
+        String query = "SELECT * FROM `apartment` WHERE " + key + " LIKE '%" + word + "%';";
         ResultSet rs = statement.executeQuery(query);
         while (rs.next()) {
             Apartment apartment = Apartment.getFromResultSet(rs);
@@ -115,7 +114,7 @@ public class ApartmentDao extends Dao<Apartment> {
 
     public Apartment getRandom() throws SQLException {
         Statement statement = conn.createStatement();
-        String query = "SELECT * FROM service_apartment ORDER BY RAND() LIMIT 1";
+        String query = "SELECT * FROM apartment ORDER BY RAND() LIMIT 1";
         ResultSet rs = statement.executeQuery(query);
         if (rs.next()) {
             Apartment apartment = Apartment.getFromResultSet(rs);
@@ -123,5 +122,6 @@ public class ApartmentDao extends Dao<Apartment> {
         }
         return null;
     }
+
  
 }

@@ -7,33 +7,30 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import models.Resident;
 
-/**
- * @createAt Nov 25, 2020
- * @author Tran Duc Cuong<clonebmn2itt@gmail.com>
- */
+
 public class ResidentDao extends Dao<Resident> {
 
     @Override
     public ArrayList<Resident> getAll() throws SQLException {
-        ArrayList<Resident> customers = new ArrayList<>();
+        ArrayList<Resident> residents = new ArrayList<>();
         Statement statement = conn.createStatement();
-        String query = "SELECT * FROM `customer`";
+        String query = "SELECT * FROM `resident`";
         ResultSet rs = statement.executeQuery(query);
         while (rs.next()) {
-            Resident customer = Resident.getFromResultSet(rs);
-            customers.add(customer);
+            Resident resident = Resident.getFromResultSet(rs);
+            residents.add(resident);
         }
-        return customers;
+        return residents;
     }
 
     @Override
-    public Resident get(int id) throws SQLException {
+    public Resident get(Long id) throws SQLException {
         Statement statement = conn.createStatement();
-        String query = "SELECT * FROM `customer` WHERE id = " + id;
+        String query = "SELECT * FROM `resident` WHERE id = " + id;
         ResultSet rs = statement.executeQuery(query);
         if (rs.next()) {
-            Resident customer = Resident.getFromResultSet(rs);
-            return customer;
+            Resident resident = Resident.getFromResultSet(rs);
+            return resident;
         }
         return null;
     }
@@ -43,7 +40,7 @@ public class ResidentDao extends Dao<Resident> {
         if (t == null) {
             throw new SQLException("Customer rỗng");
         }
-        String query = "INSERT INTO `customer` (`phoneNumber`, `name`, `address`, `birthday`) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO `resident` (`phoneNumber`, `name`, `address`, `birthday`) VALUES (?, ?, ?, ?)";
 
         PreparedStatement stmt = conn.prepareStatement(query);
 //        stmt.setNString(1, t.getPhoneNumber());
@@ -58,7 +55,7 @@ public class ResidentDao extends Dao<Resident> {
         if (t == null) {
             throw new SQLException("Customer rỗng");
         }
-        String query = "UPDATE `customer` SET `phoneNumber` = ?, `name` = ?, `address` = ?, `birthday` = ? WHERE `id` = ?";
+        String query = "UPDATE `resident` SET `phoneNumber` = ?, `name` = ?, `address` = ?, `birthday` = ? WHERE `id` = ?";
 
         PreparedStatement stmt = conn.prepareStatement(query);
 //        stmt.setNString(1, t.getPhoneNumber());
@@ -72,29 +69,29 @@ public class ResidentDao extends Dao<Resident> {
 
     @Override
     public void delete(Resident t) throws SQLException {
-        PreparedStatement stmt = conn.prepareStatement("DELETE FROM `customer` WHERE `id` = ?");
+        PreparedStatement stmt = conn.prepareStatement("DELETE FROM `resident` WHERE `id` = ?");
         stmt.setLong(1, t.getId());
         stmt.executeUpdate();
 
     }
 
     @Override
-    public void deleteById(int id) throws SQLException {
-        PreparedStatement stmt = conn.prepareStatement("DELETE FROM `customer` WHERE `id` = ?");
-        stmt.setInt(1, id);
+    public void deleteById(Long id) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("DELETE FROM `resident` WHERE `id` = ?");
+        stmt.setLong(1, id);
         stmt.executeUpdate();
     }
 
     public ArrayList<Resident> searchByKey(String key, String word) throws SQLException {
-        ArrayList<Resident> customers = new ArrayList<>();
+        ArrayList<Resident> residents = new ArrayList<>();
         Statement statement = conn.createStatement();
-        String query = "SELECT * FROM `customer` WHERE " + key + " LIKE '%" + word + "%';";
+        String query = "SELECT * FROM `resident` WHERE " + key + " LIKE '%" + word + "%';";
         ResultSet rs = statement.executeQuery(query);
         while (rs.next()) {
-            Resident customer = Resident.getFromResultSet(rs);
-            customers.add(customer);
+            Resident resident = Resident.getFromResultSet(rs);
+            residents.add(resident);
         }
-        return customers;
+        return residents;
     }
 
 }

@@ -11,11 +11,7 @@ import views.EmployeeDashboardView;
 import views.LoginViewAdmin;
 import views.admin.HomeView;
 
-/**
- * createAt Dec 15, 2020
- *
- * @author Đỗ Tuấn Anh <daclip26@gmail.com>
- */
+
 public class LoginControllerAdmin {
 
     private LoginViewAdmin view;
